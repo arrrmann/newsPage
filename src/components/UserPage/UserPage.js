@@ -4,7 +4,7 @@ import './user-page.css'
 export default class UserPage extends Component{
 
     render(){
-        const {name, email, password}=this.props
+        const {name, email, password, image}=this.props
         return (
             <div className="wrapper-userpage">
                 <ul>
@@ -12,6 +12,9 @@ export default class UserPage extends Component{
                     <li>E-mail: {email}</li>
                     <li>Password: {password}</li>
                 </ul>
+                {
+                    image ? <img src={image} alt="User's" className="img"/> : null
+                }
             </div>
         )
     }

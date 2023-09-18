@@ -8,34 +8,44 @@ export default class App extends Component{
     state={
         name: '',
         email: '',
-        password: ''
+        password: '',
+        image: undefined
     }
 
-    CheckIn=(Datas)=>{
-        if((Datas.name.length && Datas.email.length) && Datas.password.length ){ return true } else { return false }
+    CheckIn=(datas)=>{
+        if((datas.name.length && datas.email.length) && datas.password.length){ return true } else { return false }
     }
 
-    handleData=(Datas)=>{
-        if(!this.CheckIn(Datas)){
+    handleData=(datas)=>{
+        if(!this.CheckIn(datas)){
             console.log("error")
             return false
         }
         this.setState({
-            name:Datas.name,
-            email:Datas.email,
-            password:Datas.password
+            name:datas.name,
+            email:datas.email,
+            password:datas.password
         })
     }
 
-
+    imageHandler=(image)=>{
+        console.log(image)
+        if(image){
+            this.setState({
+                image
+            })
+        }else{
+            return false
+        }
+    }
 
     render(){
-        const {name, email, password}=this.state
+        const {name, email, password, image}=this.state
 
         return (
         <div>
             {
-                this.CheckIn({name, email, password}) ? <UserPage name={name} email={email} password={password}/> : <RegisterPage handleData={this.handleData}/>
+                this.CheckIn({name, email, password}) ? <UserPage name={name} email={email} password={password} image={image}/> : <RegisterPage handleData={this.handleData} imageHandler={this.imageHandler}/>
             }
         </div>
         )
