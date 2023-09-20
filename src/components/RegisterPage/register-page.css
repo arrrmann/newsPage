@@ -41,3 +41,18 @@ button.btn {
 button.btn:hover {
     background-color: #0056b3;
 }
+
+.error-alert {
+    padding: 7px 20px;
+    background-color: #BC3434;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #832020;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.error-alert span {
+    display: block;
+    padding: 3px 0;
+}

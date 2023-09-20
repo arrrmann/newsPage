@@ -4,7 +4,7 @@ import './user-page.css'
 export default class UserPage extends Component{
 
     render(){
-        const {name, email, password, image}=this.props
+        const {name, email, password, image}=this.props.userData
         return (
             <div className="wrapper-userpage">
                 <ul>

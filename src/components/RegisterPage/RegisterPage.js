@@ -2,39 +2,83 @@ import { Component } from "react";
 import './register-page.css'
 
 
-export default class RegisterPage extends Component{
-    state={
+export default class RegisterPage extends Component {
+    state = {
         name: '',
         email: '',
         password: '',
-        image: undefined
+        validationErrors: {},
+        image: undefined,
     }
 
-    onInputChange=(e)=>{
-        const {name, value}=e.target
-        this.setState((prevState)=>{
+    validateEmail = (email) => {
+        const shnik = email.indexOf("@")
+        const ket = email.lastIndexOf(".")
+        if (shnik < 1 || ket < shnik + 2 || ket + 2 >= email.length) {
+            return false
+        } else {
+            return true
+        }
+    }
+    validatePassword = (password) => {
+        if(password.length <= 6) return false
+        
+        let hasUperCaseLetter=false
+        let hasNumbers=false
+
+        for(let i=0; i<password.length; i++){
+            const char = password[i]
+
+            if(char>='A' && char<='Z') hasUperCaseLetter=true
+            if (char>='0' && char<='9') hasNumbers=true
+        }
+
+        return hasNumbers && hasUperCaseLetter
+    }
+
+    onInputChange = (e) => {
+        const { name, value } = e.target
+        this.setState((prevState) => {
             return {
-                [name]:value
+                [name]: value
             }
         })
     }
 
-    onSignup=()=>{
-        const {name, email, password, image}=this.state
-        this.props.handleData({name, email, password})
-        this.props.imageHandler(image)
-        this.setState({
-            name:'',
-            email:'',
-            password:'',
-            image: undefined
-        })
+    handleRegister = () => {
+
+        const { name, email, password, image } = this.state;
+        const validationErrors = {}
+
+        if (!email.trim() || !this.validateEmail(email)) {
+            validationErrors.email = 'Please enter a valid email.'
+        }
+        if (!password.trim() || !this.validatePassword(password)) {
+            validationErrors.password = 'Password must have more than 6 charecters. It must includes capitale letters and digits'
+        }
+        if (name.trim().length < 3) {
+            validationErrors.name = 'Username is required.'
+        }
+        if (Object.keys(validationErrors).length === 0) {
+            this.props.handleData({ name, email, password, image })
+            this.setState({
+                name: '',
+                email: '',
+                password: '',
+                validationErrors: {},
+                image: undefined
+            })
+        } else {
+
+            this.setState({ validationErrors })
+        }
     }
 
-    onImageChange=(event)=>{
+
+    onImageChange = (event) => {
         const file = event.target.files[0]
         const reader = new FileReader()
-        reader.onload=(e)=>{
+        reader.onload = (e) => {
             const imgSRC = e.target.result
             this.setState({
                 image: imgSRC
@@ -43,20 +87,27 @@ export default class RegisterPage extends Component{
         reader.readAsDataURL(file)
     }
 
-    render(){
-        const {name, email, password}=this.state
+    render() {
+        const { name, email, password, validationErrors } = this.state
 
-        return(
+        return (
             <div className="container">
                 <h1 className="sign">Sign up</h1>
-                <div className="wrapper"
-                    onDrop={this.imageDrop}
-                >
-                    <input type="file" accept="image/*" onChange={this.onImageChange}/>
-                    <input name='name' value={name} onChange={this.onInputChange} placeholder="Enter username"/>
-                    <input name='email'value={email} onChange={this.onInputChange} placeholder="Enter e-mail"/>
-                    <input name='password' value={password} onChange={this.onInputChange} placeholder="Enter password"/>
-                    <button onClick={this.onSignup}className="btn">Sign up</button>
+                <div className="wrapper">
+                    <input type="file" accept="image/*" onChange={this.onImageChange} />
+                    <input name='name' value={name} onChange={this.onInputChange} placeholder="Enter username" />
+                    <input name='email' value={email} onChange={this.onInputChange} placeholder="Enter e-mail" />
+                    <input name='password' value={password} onChange={this.onInputChange} placeholder="Enter password" />
+                    {
+                        Object.keys(validationErrors).length ? (
+                            <div className="error-alert">
+                                <span>{validationErrors.email}</span>
+                                <span>{validationErrors.password}</span>
+                                <span>{validationErrors.name}</span>
+                            </div>
+                        ) : null
+                    }
+                    <button onClick={this.handleRegister} className="btn">Sign up</button>
                 </div>
             </div>
         )
