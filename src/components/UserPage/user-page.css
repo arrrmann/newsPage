@@ -1,27 +1,42 @@
 .wrapper-userpage{
-    margin: 100px auto;
-    background-color: #000000;
-    padding: 10px;
     width: 400px;
-    height: 400px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #f2f2f2;
+    margin: 50px auto;
 }
 
-.wrapper-userpage ul{
-    margin: 20px 10px 0px 10px;
-    background-color: #cdffb9;
-    padding: 20px;
+.wrapper-userpage h1{
+    font-size: 25px;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    margin:10px 10px 20px 10px;
 }
 
-.wrapper-userpage ul li{
-    list-style: none;
+.wrapper-userpage h4{
+    font-size: 18px;
+    padding: 0;
+    text-transform: uppercase;
+    margin:20px 10px 10px 0;
+    color: #3771c7;
+}
+
+.wrapper-userpage span{
     font-weight: bold;
-    font-size: 20px;
-    margin: 0;
+    color: #3771c7;
 }
 
 .img{
     display: block;
-    width: 200px;
-    height: 200px;
-    margin: 20px 10px 5px 10px;
+    width: 50px;
+    height: 50px;
+    margin: 10px 10px 0px 10px;
+}
+
+.image-div{
+    padding: 5px;
+    width: 50%;
+    margin-bottom: 5px ;
 }
