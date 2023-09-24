@@ -4,6 +4,11 @@ import './register-page.css'
 
 
 export default function RegisterPage(props) {
+  // const [name, setName] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [validationErrors, setValidationErrors] = useState({})
+  // const [image, setImage] = useState(null)
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -38,18 +43,16 @@ export default function RegisterPage(props) {
     return (hasNumbers && hasUperCaseLetter)
   }
 
-  const onInputChange = (e) => {
+  const onInputChange = (e) => {//error ka
     const { name, value } = e.target
-    setState((prevState) => ({ //stex chmoranas destrukturizacnel, hakarak depqum error klini object-y kardaluc
-      ...prevState,//sax nuyn dzevov klini voncvor naxnakann er
-      [name]: value,//uxaki stex avelacreci arden popoxvac valunerov arjeqnery
-    }));
+    setState((prevState) => ({
+      [name]: value,
+    }))
   }
 
   const handleRegister = () => {
     const { name, email, password} = state
     const validationErrors = {}
-
     if (name.trim().length < 3) {
       validationErrors.name = '-Username is required.'
     }
@@ -59,7 +62,7 @@ export default function RegisterPage(props) {
     if (!password.trim() || !validatePassword(password)) {
       validationErrors.password = '-Password must have more than 6 characters. It must include capital letters and digits'
     }
-    if (Object.keys(validationErrors).length === 0) {
+    if (Object.keys(validationErrors).length === 0) {//error ka
       props.handleData({ name, email, password })
       setState({
         name: '',
@@ -69,22 +72,19 @@ export default function RegisterPage(props) {
         image: null,
       })
     } else {
-      setState({ ...state, validationErrors })//arden krknac dzevov-- chmoranas destrukturizacnel naxord arjeqnery
+      setState({validationErrors })
     }
   }
 
   const onImageChange = (event) => {
     const file = event.target.files[0]
-
     const reader = new FileReader()
     reader.onload = (e) => {
       const imgSRC = e.target.result
       setState({
-        // ...state //image-i ashxatanq chka
         image: imgSRC,
       })
     }
-    
     reader.readAsDataURL(file)
   }
 
