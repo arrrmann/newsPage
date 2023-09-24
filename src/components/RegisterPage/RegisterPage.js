@@ -44,6 +44,10 @@ export default function RegisterPage(props) {
       ...prevState,//sax nuyn dzevov klini voncvor naxnakann er
       [name]: value,//uxaki stex avelacreci arden popoxvac valunerov arjeqnery
     }));
+    // setState({
+    //   ...state,
+    //   [name]: value
+    // })       //kareli e naev ayspes grel
   }
 
   const handleRegister = () => {
@@ -84,7 +88,7 @@ export default function RegisterPage(props) {
         image: imgSRC,
       })
     }
-    
+
     reader.readAsDataURL(file)
   }
 
