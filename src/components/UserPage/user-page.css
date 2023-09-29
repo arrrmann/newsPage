@@ -1,7 +1,14 @@
+.dark-theme .wrapper-userpage {
+    background-color: #5E5E5E;
+}
+
+.light-theme .wrapper-userpage {
+    background-color: #F1F1F1;
+}
+
 .wrapper-userpage{
     width: 400px;
     padding: 15px;
-    background-color: #ffffff;
     border-radius: 5px;
     border: 1px solid #f2f2f2;
     margin: 50px auto;
@@ -28,7 +35,7 @@
     color: #3771c7;
 }
 
-.img{
+/* .img{
     display: block;
     width: 50px;
     height: 50px;
@@ -39,4 +46,10 @@
     padding: 5px;
     width: 50%;
     margin-bottom: 5px ;
+} */
+
+.dark-theme .wrapper-userpage span,
+.dark-theme .wrapper-userpage h4 {
+    color: #92B3E5;
 }
+/* kopit asac stex asum enq.. ete elementy uni ays class-y ev  ayd elementi mej ka ays class-y uremn tox ynduni ays hatkurtyunnery */

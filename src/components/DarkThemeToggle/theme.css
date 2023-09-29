@@ -1,0 +1,18 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.dark-theme {
+    background-color: black;
+    color: white;
+}
+
+.light-theme {
+    background-color: white;
+    color: black;
+}
+
+.app {
+    height: 100vh;
+}
