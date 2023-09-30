@@ -1,12 +1,12 @@
-.dark-theme .wrapper-userpage {
+.darkTheme .wrapperUserpage {
     background-color: #5E5E5E;
 }
 
-.light-theme .wrapper-userpage {
+.lightTheme .wrapperUserpage {
     background-color: #F1F1F1;
 }
 
-.wrapper-userpage{
+.wrapperUserpage{
     width: 400px;
     padding: 15px;
     border-radius: 5px;
@@ -14,7 +14,7 @@
     margin: 50px auto;
 }
 
-.wrapper-userpage h1{
+.wrapperUserpage h1{
     font-size: 25px;
     padding: 0;
     text-align: center;
@@ -22,7 +22,7 @@
     margin:10px 10px 20px 10px;
 }
 
-.wrapper-userpage h4{
+.wrapperUserpage h4{
     font-size: 18px;
     padding: 0;
     text-transform: uppercase;
@@ -30,26 +30,26 @@
     color: #3771c7;
 }
 
-.wrapper-userpage span{
+.wrapperUserpage span{
     font-weight: bold;
     color: #3771c7;
 }
 
-/* .img{
+.img{
     display: block;
     width: 50px;
     height: 50px;
     margin: 10px 10px 0px 10px;
 }
 
-.image-div{
+.imageDiv{
     padding: 5px;
     width: 50%;
     margin-bottom: 5px ;
-} */
+}
 
-.dark-theme .wrapper-userpage span,
-.dark-theme .wrapper-userpage h4 {
+.darkTheme .wrapperUserpage span,
+.darkTheme .wrapperUserpage h4 {
     color: #92B3E5;
 }
 /* kopit asac stex asum enq.. ete elementy uni ays class-y ev  ayd elementi mej ka ays class-y uremn tox ynduni ays hatkurtyunnery */

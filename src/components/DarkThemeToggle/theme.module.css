@@ -3,12 +3,12 @@ html, body {
     margin: 0;
 }
 
-.dark-theme {
+.darkTheme {
     background-color: black;
     color: white;
 }
 
-.light-theme {
+.lightTheme {
     background-color: white;
     color: black;
 }

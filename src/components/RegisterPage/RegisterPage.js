@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa6";
-import './register-page.css'
+import styles from './register-page.module.css'
 
 
 export default function RegisterPage(props) {
+  console.log(styles)
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -95,35 +96,35 @@ export default function RegisterPage(props) {
   const { name, email, password, validationErrors, image } = state
 
   return (
-    <div className="register-page-wrapper">
-      <h1 className="sign">Sign up</h1>
+    <div className={styles.registerPageWrapper}>
+      <h1 className={styles.sign}>Sign up</h1>
       <div className="register-form">
-        <div className="register-input file-input-div">
-          <label className="label" htmlFor="file">Choose profile picture {image ? <FaCheck /> : null}</label>
+        <div className={styles.registerInput + ' ' + styles.fileInputDiv}>
+          <label className={styles.label} htmlFor="file">Choose profile picture {image ? <FaCheck /> : null}</label>
           <input type="file" accept="image/*" onChange={onImageChange} id="file" />
         </div>
-        <div className="register-input">
+        <div className={styles.registerInput}>
           <label htmlFor="name">Name:</label>
           <input type="text" name='name' value={name} onChange={onInputChange} placeholder="Enter username" id="name" />
         </div>
-        <div className="register-input">
+        <div className={styles.registerInput}>
           <label htmlFor="email">Email:</label>
           <input type="email" name='email' value={email} onChange={onInputChange} placeholder="Enter e-mail" id="email" />
         </div>
-        <div className="register-input">
+        <div className={styles.registerInput}>
           <label htmlFor="password">Password:</label>
           <input type="password" name='password' value={password} onChange={onInputChange} placeholder="Enter password" id="password" />
         </div>
         {
           Object.keys(validationErrors).length ? (
-            <div className="error-alert">
+            <div className={styles.errorAlert}>
               <span>{validationErrors.name}</span>
               <span>{validationErrors.email}</span>
               <span>{validationErrors.password}</span>
             </div>
           ) : null
         }
-        <button onClick={handleRegister} className="btn">Sign up</button>
+        <button onClick={handleRegister} className={styles.btn}>Sign up</button>
       </div>
     </div>
   )

@@ -1,21 +1,26 @@
 import { useState } from "react";
-import './theme.css'
+import styles from './theme.module.css'
+//styles-y object e  vori arjeqnery galis en css.module.css faylic
 
-export default function DarkThemeToggle ({children}){
-//etechildreni mej galis e 2-ic avel JSX, kampanyent, kam ayl inchvor mi ban, apa propsi-i children-y darnum e array vortex amen mi elementy arandzin object e
-    const [isDark, setIsDark]=useState(false)
 
-    const handleCheckBoxValue=()=>{
-        setIsDark((prev)=>!prev)
+export default function DarkThemeToggle({ children }) {
+    //etechildreni mej galis e 2-ic avel JSX, kampanyent, kam ayl inchvor mi ban, apa propsi-i children-y darnum e array vortex amen mi elementy arandzin object e
+    //console.log(children)
+    //console.log(styles)
+    // {app: "theme_app__Gkd+6", darkTheme: "theme_darkTheme__-ifik", lightTheme: "theme_lightTheme__dURSP"}
+    const [isDark, setIsDark] = useState(false)
+
+    const handleCheckBoxValue = () => {
+        setIsDark((prev) => !prev)
     }
 
-    return(
-        <div className={ isDark ? 'dark-theme app': 'light-theme app' }>
+    return (
+        <div className={isDark ? styles.darkTheme + ' ' + styles.app : styles.lightTheme + ' ' + styles.app}>
             <label>
                 Change Theme
-                <input type="checkbox" checked={isDark} onChange={handleCheckBoxValue}/>
+                <input type="checkbox" checked={isDark} onChange={handleCheckBoxValue} />
             </label>
-            
+
             {children}
         </div>
     )

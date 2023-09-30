@@ -1,12 +1,12 @@
-.dark-theme .register-page-wrapper{
+.darkTheme .registerPageWrapper{
     background-color: #ffffff;
 }
 
-.light-theme .register-page-wrapper{
-    background-color: #dad9d9;
+.lightTheme .registerPageWrapper{
+    background-color: #d8d8d8;
 }
 
-.register-page-wrapper {
+.registerPageWrapper {
     width: 400px;
     padding: 15px;
     border-radius: 5px;
@@ -22,19 +22,19 @@
     margin-bottom: 50px;
 }
 
-.register-input{
+.registerInput{
     padding: 5px 10px 5px 0;
     margin-top: 10px;
 
 }
 
-.register-input label{
+.registerInput label{
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.file-input-div input[type='file']{
+.fileInputDiv input[type='file']{
     display: none;
 }
 
@@ -70,7 +70,7 @@
     background-color: #20c70a;
 }
 
-.register-input input{
+.registerInput input{
     display: block;
     outline: none;
     border: 1px solid #dddddd;
@@ -80,7 +80,7 @@
     width: 100%;
 }
 
-.error-alert {
+.errorAlert {
     padding: 7px 20px;
     background-color: #BC3434;
     color: #fff;
@@ -90,12 +90,12 @@
     margin: 10px 0;
     border-radius: 5px;
 }
-.error-alert span {
+.errorAlert span {
     display: block;
     padding: 3px 0;
 }
 
-.dark-theme .register-input label, 
-.dark-theme .sign{
+.darkTheme .registerInput label, 
+.darkTheme .sign{
     color: black;
 }
